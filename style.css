@@ -1,4 +1,5 @@
 /* ═══════════════════════════════════════════
+
    MAGICZNA MATEMATYKA OLIWKI — style.css
    Vanilla CSS, brak zależności
    ═══════════════════════════════════════════ */
@@ -626,25 +627,23 @@ button:disabled {
 }
 
 /* ═══════════════════════════════════════════
-   DESKTOP — karta aplikacji mobilnej
-   ≥ 600px szerokości = nie jesteśmy na wąskim telefonie
+   TABLET — ≥ 768px
    ═══════════════════════════════════════════ */
-@media (min-width: 600px) {
+@media (min-width: 768px) {
 
-  /* Wyśrodkuj całą stronę i dodaj miejsce na kartę */
   body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     padding: 40px 24px;
     background-attachment: fixed;
   }
 
-  /* Karta — wygląd mockupu telefonu */
   .app {
-    width: 430px;
-    min-height: auto;           /* nie rozciągaj na pełną wysokość */
+    width: 100%;
+    max-width: 600px;
+    min-height: auto;
     border-radius: 40px;
     overflow: hidden;
     box-shadow:
@@ -653,27 +652,99 @@ button:disabled {
       0 0 0 1.5px rgba(196, 181, 253, 0.5);
   }
 
-  /* Ekrany — brak wymuszonej wysokości 100vh */
   .screen {
     min-height: auto;
     border-radius: inherit;
+    padding: 32px 32px 40px;
   }
 
-  /* Gra: karta pytania bez flex:1 (brak rodzica o stałej wysokości) */
+  .welcome-content {
+    gap: 22px;
+    padding: 20px 0 16px;
+  }
+
+  .title-line1,
+  .title-line2    { font-size: 2.2rem; }
+
+  .fairy-img      { width: 260px; }
+
+  .message-card   { max-width: 420px; }
+  .message-card p { font-size: 1rem; }
+
+  .ded-main       { font-size: 1.3rem; }
+
   #screen-game .question-card {
     flex: none;
-    min-height: 190px;
+    min-height: 210px;
   }
 
-  /* Koniec: treść nie musi wypełniać ekranu */
-  .end-content {
-    flex: none;
-    padding-bottom: 8px;
-  }
+  .question-text  { font-size: 4rem; }
+  .btn-answer     { padding: 24px 12px; font-size: 2.2rem; }
 
-  /* Menu może scrollować wewnątrz karty jeśli treść długa */
+  .end-content    { flex: none; padding-bottom: 8px; }
+  .end-score      { font-size: 4.4rem; }
+  .end-title      { font-size: 2.2rem; }
+
   #screen-menu {
     max-height: calc(90vh - 80px);
     overflow-y: auto;
   }
+
+  .btn-primary  { font-size: 1.3rem; padding: 20px 28px; }
+  .btn-secondary{ font-size: 1.2rem; padding: 18px 28px; }
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP — ≥ 1024px
+   ═══════════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  body {
+    align-items: center;
+    padding: 48px 32px;
+  }
+
+  .app {
+    max-width: 740px;
+  }
+
+  .screen {
+    padding: 40px 48px 48px;
+  }
+
+  .welcome-content {
+    gap: 24px;
+    padding: 24px 0 20px;
+  }
+
+  .title-line1,
+  .title-line2    { font-size: 2.6rem; }
+
+  .fairy-img      { width: 300px; }
+
+  .message-card   { max-width: 500px; }
+  .message-card p { font-size: 1.05rem; }
+
+  .ded-main       { font-size: 1.4rem; }
+  .ded-sub        { font-size: 1.1rem; }
+
+  #screen-game .question-card {
+    min-height: 240px;
+  }
+
+  .question-text  { font-size: 4.8rem; }
+  .btn-answer     { padding: 28px 16px; font-size: 2.6rem; }
+  .answers-grid   { gap: 16px; }
+
+  .end-score      { font-size: 5rem; }
+  .end-title      { font-size: 2.6rem; }
+  .end-emoji      { font-size: 6rem; }
+
+  .btn-primary  { font-size: 1.4rem; padding: 22px 32px; }
+  .btn-secondary{ font-size: 1.3rem; padding: 20px 32px; }
+
+  .section-title  { font-size: 1.7rem; }
+  .btn-mode       { font-size: 1.25rem; padding: 20px 26px; }
+  .btn-icon       { font-size: 2rem; }
+  .btn-range      { padding: 20px 8px; font-size: 1.25rem; }
 }
