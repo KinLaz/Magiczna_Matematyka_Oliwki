@@ -175,9 +175,10 @@ body {
 }
 
 .fairy-img {
-  width: 170px;
+  width: 220px;
   height: auto;
   filter: drop-shadow(0 8px 24px rgba(167,139,250,0.3));
+  object-fit: contain;
 }
 
 .dedication { text-align: center; }
@@ -609,7 +610,7 @@ button:disabled {
    RESPONSYWNOŚĆ — bardzo małe / stare telefony
    ═══════════════════════════════════════════ */
 @media (max-height: 680px) {
-  .fairy-img        { width: 130px; }
+  .fairy-img        { width: 170px; }
   .title-line1,
   .title-line2      { font-size: 1.55rem; }
   .question-text    { font-size: 2.8rem; }
