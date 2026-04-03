@@ -145,10 +145,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex: 1;
-  gap: 14px;
-  padding-top: 4px;
+  gap: 20px;
+  padding: 16px 0 12px;
 }
 
 .welcome-title { text-align: center; }
@@ -622,4 +622,57 @@ button:disabled {
   .fairy-img        { width: 100px; }
   .question-card    { min-height: 110px; padding: 14px; }
   .screen           { padding: 16px 16px 20px; }
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP — karta aplikacji mobilnej
+   ≥ 600px szerokości = nie jesteśmy na wąskim telefonie
+   ═══════════════════════════════════════════ */
+@media (min-width: 600px) {
+
+  /* Wyśrodkuj całą stronę i dodaj miejsce na kartę */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+    background-attachment: fixed;
+  }
+
+  /* Karta — wygląd mockupu telefonu */
+  .app {
+    width: 430px;
+    min-height: auto;           /* nie rozciągaj na pełną wysokość */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow:
+      0 32px 80px rgba(139, 92, 246, 0.28),
+      0 12px 32px rgba(244, 114, 182, 0.2),
+      0 0 0 1.5px rgba(196, 181, 253, 0.5);
+  }
+
+  /* Ekrany — brak wymuszonej wysokości 100vh */
+  .screen {
+    min-height: auto;
+    border-radius: inherit;
+  }
+
+  /* Gra: karta pytania bez flex:1 (brak rodzica o stałej wysokości) */
+  #screen-game .question-card {
+    flex: none;
+    min-height: 190px;
+  }
+
+  /* Koniec: treść nie musi wypełniać ekranu */
+  .end-content {
+    flex: none;
+    padding-bottom: 8px;
+  }
+
+  /* Menu może scrollować wewnątrz karty jeśli treść długa */
+  #screen-menu {
+    max-height: calc(90vh - 80px);
+    overflow-y: auto;
+  }
 }
