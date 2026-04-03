@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 265">
+
+  <!-- Skrzydła lewe -->
+  <ellipse cx="67" cy="150" rx="44" ry="24" fill="#f9a8d4" opacity="0.75" transform="rotate(-26 67 150)"/>
+  <ellipse cx="60" cy="172" rx="29" ry="16" fill="#fda4af" opacity="0.55" transform="rotate(-16 60 172)"/>
+
+  <!-- Skrzydła prawe -->
+  <ellipse cx="133" cy="150" rx="44" ry="24" fill="#c4b5fd" opacity="0.75" transform="rotate(26 133 150)"/>
+  <ellipse cx="140" cy="172" rx="29" ry="16" fill="#a78bfa" opacity="0.55" transform="rotate(16 140 172)"/>
+
+  <!-- Sukienka -->
+  <path d="M77 170 Q100 210 123 170 L128 248 Q100 261 72 248 Z" fill="#f472b6"/>
+  <path d="M79 172 Q100 202 121 172" stroke="#ec4899" stroke-width="1.5" fill="none"/>
+  <circle cx="100" cy="208" r="3"   fill="white" opacity="0.45"/>
+  <circle cx="89"  cy="224" r="2"   fill="white" opacity="0.38"/>
+  <circle cx="112" cy="228" r="2"   fill="white" opacity="0.38"/>
+  <circle cx="100" cy="236" r="1.5" fill="white" opacity="0.32"/>
+
+  <!-- Tors -->
+  <rect x="83" y="144" width="34" height="32" rx="12" fill="#fda4af"/>
+
+  <!-- Głowa -->
+  <circle cx="100" cy="112" r="35" fill="#fef3c7"/>
+
+  <!-- Rumieńce -->
+  <circle cx="81"  cy="122" r="9" fill="#fca5a5" opacity="0.44"/>
+  <circle cx="119" cy="122" r="9" fill="#fca5a5" opacity="0.44"/>
+
+  <!-- Oczy — białka -->
+  <ellipse cx="89"  cy="110" rx="7" ry="8" fill="white"/>
+  <ellipse cx="111" cy="110" rx="7" ry="8" fill="white"/>
+  <!-- Oczy — tęczówki -->
+  <ellipse cx="89"  cy="111" rx="5" ry="6" fill="#581c87"/>
+  <ellipse cx="111" cy="111" rx="5" ry="6" fill="#581c87"/>
+  <!-- Błysk -->
+  <circle cx="91"   cy="108" r="2.2" fill="white"/>
+  <circle cx="113"  cy="108" r="2.2" fill="white"/>
+  <!-- Rzęsy -->
+  <line x1="83" y1="106" x2="85" y2="102" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="88" y1="104" x2="89" y2="100" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="117" y1="106" x2="115" y2="102" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="112" y1="104" x2="111" y2="100" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Nos -->
+  <circle cx="100" cy="119" r="2.5" fill="#fbbf24" opacity="0.48"/>
+
+  <!-- Uśmiech -->
+  <path d="M89 127 Q100 137 111 127" stroke="#db2777" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Włosy — tył -->
+  <path d="M65 112 Q67 74 100 71 Q133 74 135 112" fill="#7c3aed"/>
+
+  <!-- Loki boczne -->
+  <path d="M65 110 Q53 120 57 135 Q61 147 70 138" fill="#6d28d9"/>
+  <path d="M135 110 Q147 120 143 135 Q139 147 130 138" fill="#6d28d9"/>
+
+  <!-- Reflexy na włosach -->
+  <path d="M70 108 Q72 78 100 74" stroke="#c4b5fd" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M130 108 Q128 78 100 74" stroke="#c4b5fd" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Korona -->
+  <path d="M82 78 L85 65 L93 75 L100 62 L107 75 L115 65 L118 78"
+        stroke="#fbbf24" stroke-width="2.8" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="100" cy="62" r="4.5" fill="#f472b6"/>
+  <circle cx="85"  cy="65" r="2.8" fill="#fbbf24"/>
+  <circle cx="115" cy="65" r="2.8" fill="#fbbf24"/>
+
+  <!-- Trzonek różdżki -->
+  <line x1="123" y1="156" x2="161" y2="118" stroke="#fbbf24" stroke-width="3.2" stroke-linecap="round"/>
+  <!-- Poświata przy gwieździe -->
+  <circle cx="161" cy="118" r="11" fill="#fef08a" opacity="0.35"/>
+  <!-- Gwiazda na różdżce -->
+  <polygon points="161,107 163.8,115.2 172.5,115.2 165.8,120.3 168.4,128.5 161,123.5 153.6,128.5 156.2,120.3 149.5,115.2 158.2,115.2"
+           fill="#fbbf24"/>
+  <polygon points="161,110 163.2,116.8 169.5,116.8 164.5,120.5 166.5,127.2 161,123.2 155.5,127.2 157.5,120.5 152.5,116.8 158.8,116.8"
+           fill="#fef08a"/>
+
+  <!-- Małe gwiazdki dekoracyjne -->
+  <g transform="translate(16,82) scale(0.55)">
+    <polygon points="10,0 12,7 20,7 14,11 16.5,18.5 10,14 3.5,18.5 6,11 0,7 8,7" fill="#f472b6" opacity="0.75"/>
+  </g>
+  <g transform="translate(170,95) scale(0.45)">
+    <polygon points="10,0 12,7 20,7 14,11 16.5,18.5 10,14 3.5,18.5 6,11 0,7 8,7" fill="#a78bfa" opacity="0.75"/>
+  </g>
+  <circle cx="32"  cy="175" r="2.5" fill="#fbbf24" opacity="0.55"/>
+  <circle cx="171" cy="178" r="2"   fill="#f472b6" opacity="0.55"/>
+  <circle cx="22"  cy="145" r="1.5" fill="#c4b5fd" opacity="0.6"/>
+  <circle cx="178" cy="148" r="1.5" fill="#fbbf24" opacity="0.5"/>
+</svg>

@@ -1,0 +1,625 @@
+/* ═══════════════════════════════════════════
+   MAGICZNA MATEMATYKA OLIWKI — style.css
+   Vanilla CSS, brak zależności
+   ═══════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────
+   ZMIENNE KOLORÓW
+─────────────────────────────────────────── */
+:root {
+  --pink-100:  #fce7f3;
+  --pink-300:  #f9a8d4;
+  --pink-400:  #f472b6;
+  --pink-500:  #ec4899;
+  --pink-600:  #db2777;
+  --purple-100:#ede9fe;
+  --purple-200:#ddd6fe;
+  --purple-300:#c4b5fd;
+  --purple-400:#a78bfa;
+  --purple-500:#8b5cf6;
+  --purple-600:#7c3aed;
+  --purple-700:#6d28d9;
+  --purple-800:#5b21b6;
+  --glass:     rgba(255,255,255,0.65);
+  --glass-border: rgba(196,181,253,0.5);
+  --shadow-soft: 0 8px 32px rgba(167,139,250,0.2);
+}
+
+/* ───────────────────────────────────────────
+   RESET & BASE
+─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Nunito', 'Segoe UI Rounded', 'Comic Sans MS', system-ui, sans-serif;
+  background: linear-gradient(160deg, #fce7f3 0%, #ede9fe 60%, #ddd6fe 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ───────────────────────────────────────────
+   APP CONTAINER — centrowanie na desktop
+─────────────────────────────────────────── */
+.app {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ───────────────────────────────────────────
+   EKRANY (widoki)
+─────────────────────────────────────────── */
+.screen {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px 20px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* Menu może być dłuższe niż ekran → scroll */
+#screen-menu {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ───────────────────────────────────────────
+   CZĄSTECZKI DEKORACYJNE (tło)
+─────────────────────────────────────────── */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  user-select: none;
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* ───────────────────────────────────────────
+   ANIMACJE
+─────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-9px); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.3); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.65); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.float        { animation: float 3.5s ease-in-out infinite; }
+.btn-pulse    { animation: pulse 2s ease-in-out infinite; }
+.bounce-slow  { animation: bounce-slow 2.5s ease-in-out infinite; }
+.slide-up     { animation: slide-up 0.5s ease-out forwards; }
+.pop-in       { animation: pop-in 0.3s ease-out forwards; }
+
+/* ═══════════════════════════════════════════
+   EKRAN 1 — POWITALNY
+   ═══════════════════════════════════════════ */
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.welcome-title { text-align: center; }
+
+.title-line1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  text-shadow: 0 2px 8px rgba(167,139,250,0.35);
+  line-height: 1.2;
+}
+
+.title-line2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--pink-600);
+  text-shadow: 0 2px 8px rgba(244,114,182,0.35);
+  line-height: 1.2;
+}
+
+.fairy-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.fairy-img {
+  width: 170px;
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(167,139,250,0.3));
+}
+
+.dedication { text-align: center; }
+
+.ded-main {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #9333ea;
+}
+
+.ded-sub {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple-400);
+  margin-top: 2px;
+}
+
+.message-card {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 14px 22px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+.message-card p {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple-700);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════
+   PRZYCISKI — WSPÓLNE
+   ═══════════════════════════════════════════ */
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform .12s, box-shadow .12s, opacity .12s;
+  touch-action: manipulation;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.95) !important;
+}
+
+/* Główny przycisk (gradient fiolet-róż) */
+.btn-primary {
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 24px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 100%);
+  box-shadow: 0 8px 24px rgba(167,139,250,0.45);
+  letter-spacing: .02em;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 10px 28px rgba(167,139,250,0.55);
+  transform: translateY(-2px);
+}
+
+/* Drugorzędny przycisk (szklany) */
+.btn-secondary {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--purple-600);
+  background: var(--glass);
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 4px 14px rgba(167,139,250,0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.85);
+}
+
+/* Nieaktywny przycisk */
+.btn-disabled {
+  background: rgba(196,181,253,0.4) !important;
+  color: var(--purple-400) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+/* ═══════════════════════════════════════════
+   EKRAN 2 — MENU
+   ═══════════════════════════════════════════ */
+.menu-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+}
+
+.menu-header { text-align: center; padding-top: 4px; }
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  margin-bottom: 4px;
+}
+
+.section-sub {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--purple-400);
+}
+
+/* Przyciski trybów */
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.btn-mode {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 14px rgba(167,139,250,0.25);
+  transition: transform .15s, box-shadow .15s, opacity .15s;
+}
+
+.btn-mode-add { background: linear-gradient(135deg, #f9a8d4, #ec4899); }
+.btn-mode-sub { background: linear-gradient(135deg, #c4b5fd, #7c3aed); }
+.btn-mode-mix { background: linear-gradient(135deg, #e879f9, #f472b6); }
+
+.btn-icon { font-size: 1.8rem; }
+
+.btn-mode.selected {
+  box-shadow: 0 0 0 4px var(--pink-400), 0 8px 20px rgba(167,139,250,0.4);
+  transform: scale(1.03);
+}
+
+.btn-mode.unselected { opacity: 0.6; }
+
+/* Przyciski zakresu */
+.range-section { display: flex; flex-direction: column; gap: 10px; }
+
+.range-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.btn-range {
+  padding: 16px 6px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  background: rgba(255,255,255,0.72);
+  border: 1.5px solid var(--glass-border);
+  box-shadow: 0 3px 10px rgba(167,139,250,0.2);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.btn-range.selected {
+  background: linear-gradient(135deg, #f472b6, #a78bfa);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 0 3px var(--pink-400), 0 6px 16px rgba(167,139,250,0.35);
+  transform: scale(1.08);
+}
+
+.range-hint {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--purple-400);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════
+   EKRAN 3 — GRA
+   ═══════════════════════════════════════════ */
+.game-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.hearts { display: flex; gap: 4px; }
+
+.heart {
+  font-size: 1.5rem;
+  transition: opacity .3s;
+  display: inline-block;
+}
+.heart.alive { animation: heartbeat 1.9s ease-in-out infinite; }
+.heart.dead  { opacity: .18; filter: grayscale(1); }
+
+.badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.62);
+  color: var(--purple-600);
+  white-space: nowrap;
+}
+
+/* Pasek postępu */
+.progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(196,181,253,0.35);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f472b6, #a78bfa);
+  transition: width .45s ease;
+  width: 0%;
+}
+
+.question-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--purple-400);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Karta z pytaniem */
+.question-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-soft);
+  flex: 1;
+  justify-content: center;
+  margin-bottom: 14px;
+  min-height: 150px;
+}
+
+.feedback-emoji {
+  font-size: 2.8rem;
+  min-height: 3rem;
+  line-height: 1;
+}
+
+.question-text {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  text-shadow: 0 2px 8px rgba(167,139,250,0.28);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.feedback {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+  min-height: 1.5rem;
+}
+
+.feedback.correct-fb { color: #16a34a; }
+.feedback.wrong-fb   { color: #dc2626; }
+
+/* Przyciski odpowiedzi */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.btn-answer {
+  padding: 20px 12px;
+  border-radius: 24px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  background: rgba(255,255,255,0.75);
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 4px 14px rgba(167,139,250,0.2);
+  transition: transform .1s, box-shadow .1s;
+}
+
+.btn-answer:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(167,139,250,0.35);
+}
+
+.btn-answer.correct {
+  background: linear-gradient(135deg, #86efac, #4ade80) !important;
+  color: white !important;
+  border-color: #16a34a !important;
+  box-shadow: 0 4px 14px rgba(74,222,128,0.4) !important;
+}
+
+.btn-answer.wrong {
+  background: rgba(254,202,202,0.9) !important;
+  color: #dc2626 !important;
+  border-color: #fca5a5 !important;
+}
+
+.btn-answer:disabled { cursor: default; }
+
+/* ═══════════════════════════════════════════
+   EKRAN 4 — KONIEC
+   ═══════════════════════════════════════════ */
+.end-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.end-emoji {
+  font-size: 5rem;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.end-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  text-align: center;
+}
+
+.result-card {
+  width: 100%;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.end-message {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #9333ea;
+  text-align: center;
+}
+
+.end-score {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--purple-600);
+  line-height: 1;
+}
+
+.end-stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.star       { font-size: 2.4rem; transition: opacity .3s; }
+.star.active  { opacity: 1; }
+.star.inactive{ opacity: 0.2; filter: grayscale(1); }
+
+.end-lives-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--purple-400);
+}
+
+.end-lives { display: flex; gap: 4px; }
+
+.end-motivation {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #9333ea;
+  text-align: center;
+  line-height: 1.65;
+  padding: 0 10px;
+}
+
+.end-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSYWNOŚĆ — bardzo małe / stare telefony
+   ═══════════════════════════════════════════ */
+@media (max-height: 680px) {
+  .fairy-img        { width: 130px; }
+  .title-line1,
+  .title-line2      { font-size: 1.55rem; }
+  .question-text    { font-size: 2.8rem; }
+  .btn-answer       { padding: 16px 10px; font-size: 1.7rem; }
+  .end-emoji        { font-size: 3.8rem; }
+  .end-score        { font-size: 3rem; }
+}
+
+@media (max-height: 580px) {
+  .fairy-img        { width: 100px; }
+  .question-card    { min-height: 110px; padding: 14px; }
+  .screen           { padding: 16px 16px 20px; }
+}
