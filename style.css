@@ -705,12 +705,14 @@ button:disabled {
   }
 
   .app {
-    max-width: 1000px;
+    max-width: 860px;
     width: 100%;
+    min-height: auto;
   }
 
   .screen {
-    padding: 40px 48px 48px;
+    min-height: auto;
+    padding: 28px 32px 32px;
   }
 
   .welcome-content {
